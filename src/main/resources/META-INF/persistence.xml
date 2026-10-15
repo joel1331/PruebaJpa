@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="pruebajpaPU" transaction-type="RESOURCE_LOCAL">
+    <!-- Si usas EclipseLink (es el que viene por defecto en NetBeans con JPA) -->
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!-- Si utilizas Hibernate en tu proyecto, reemplaza la línea anterior por esta:
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+    <!-- Entidad Alumno registrada -->
+    <class>com.mycompany.jpaprueba.logica.Alumno</class>
+    <class>com.mycompany.jpaprueba.logica.Carrera</class>
+    <class>com.mycompany.jpaprueba.logica.Materia</class>
+    <properties>
+      <!-- Controlador JDBC de MySQL -->
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <!-- URL con el nombre de tu base de datos: pruebajpa -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pruebajpa?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <!-- Usuario y Contraseña de phpMyAdmin / XAMPP -->
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <!-- Crear o actualizar las tablas automáticamente al ejecutar -->
+      <!-- Si usas EclipseLink: -->
+      <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+      <!-- Si usas Hibernate, usa esta otra propiedad en su lugar: -->
+      <!-- <property name="hibernate.hbm2ddl.auto" value="update"/> -->
+    </properties>
+  </persistence-unit>
+</persistence>
